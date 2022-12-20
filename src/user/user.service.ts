@@ -6,18 +6,19 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @Injectable()
 export class UserService {
   private userarr=[{
-    id: 1,
     name: "aditya",
-    email: "aditya@gmail.com"
+    email: "aditya@gmail.com",
+    id: 1,
   },
   {
-    id: 2,
     name: "nikhil",
-    email: "nikhil@gmail.com"
+    email: "nikhil@gmail.com",
+    id: 2,
   }
 ];
 
   create(createUserDto: CreateUserDto) {
+    createUserDto.id=this.userarr.length+1;
     this.userarr.push(createUserDto);
     return this.userarr;
   }
